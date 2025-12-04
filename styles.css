@@ -1,0 +1,8 @@
+.nav-pills .nav-link {
+  background: none !important;
+  color: black;
+}
+
+.nav-pills .nav-link.active {
+  color: #0d6efd !important; /* azul bootstrap */
+}

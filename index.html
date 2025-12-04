@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Photo Feed con Bootstrap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="bi bi-instagram"></i>
+      Instagram
+    </a>
+    <div class="d-flex align-items-center">
+      <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#createPostModal">Create a new post</button>  
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-gear-fill"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Accessibility</a></li>
+            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="modal" id="createPostModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create a new post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Caption:</label>
+        <textarea class="form-control" rows="3" placeholder="Add the caption of your post here"></textarea>
+        <div class="d-flex gap-2 mt-2">
+          <button type="button" class="btn btn-light border btn-sm">
+            <i class="bi bi-camera-fill"></i>
+          </button>
+          <button type="button" class="btn btn-light border btn-sm">
+            <i class="bi bi-geo-alt-fill"></i>
+          </button>
+        </div>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Publish</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <ul class="nav nav-pills justify-content-center gap-3" id="viewSwitcher">
+    <li class="nav-item">
+      <button class="nav-link" id="btnGrid">
+        <i class="bi bi-grid-3x3-gap"></i>
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link active" id="btnFeed">
+        <i class="bi bi-square-fill"></i>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="feedView">
+<div class="container">  
+  <div class="card mx-auto mt-4" style="width: 40rem;">
+    <div class="card-header d-flex justify-content-between">
+      <span><strong>The only one, the black one</strong></span>
+      <span>12/14</span>
+    </div>
+    <img src="https://picsum.photos/id/237/800/600" class="card-img-top" alt="post image">
+    <div class="card-body">
+      <p class="card-text"><strong>204 Likes</strong><br>The happiest dog in the world posing for the camera.</p>
+    </div>
+  </div>  
+</div>
+<div class="card mx-auto mt-4" style="width: 40rem;">
+  <div class="card-header d-flex justify-content-between">
+    <span><strong>Dog food</strong></span>
+    <span>13/14</span>
+  </div>
+  <img src="https://picsum.photos/id/1025/800/600" class="card-img-top" alt="post image">
+  <div class="card-body">
+    <p class="card-text"><strong>654 Likes</strong><br>Wrapped like a burrito, and absolutely loving it.</p>
+  </div>
+</div>
+<div class="card mx-auto mt-4" style="width: 40rem;">
+  <div class="card-header d-flex justify-content-between">
+    <span><strong>My animal spirit</strong></span>
+    <span>12/14</span>
+  </div>
+  <img src="https://picsum.photos/id/1062/800/600" class="card-img-top" alt="post image">
+  <div class="card-body">
+    <p class="card-text"><strong>436 Likes</strong><br>Caught mid-adventure, looking for new friends. Not really!</p>
+  </div>
+</div>
+</div>
+<div id="gridView" class="d-none">
+  <div class="container mt-4">
+  <div class="row row-cols-3 g-2">
+    <div class="col">
+      <img src="https://picsum.photos/id/237/800/600" class="img-fluid w-100" alt="photo 1">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1025/800/600" class="img-fluid w-100" alt="photo 2">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1062/800/600" class="img-fluid w-100" alt="photo 3">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1084/800/600" class="img-fluid w-100" alt="photo 4">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1003/800/600" class="img-fluid w-100" alt="photo 5">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1069/800/600" class="img-fluid w-100" alt="photo 6">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1020/800/600" class="img-fluid w-100" alt="photo 7">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1024/800/600" class="img-fluid w-100" alt="photo 8">
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/id/1016/800/600" class="img-fluid w-100" alt="photo 9">
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  const btnFeed = document.getElementById('btnFeed');
+  const btnGrid = document.getElementById('btnGrid');
+  const feedView = document.getElementById('feedView');
+  const gridView = document.getElementById('gridView');
+
+  btnFeed.onclick = function () {
+    btnFeed.classList.add('active');
+    btnGrid.classList.remove('active');
+    feedView.classList.remove('d-none');
+    gridView.classList.add('d-none');
+  };
+
+  btnGrid.onclick = function () {
+    btnGrid.classList.add('active');
+    btnFeed.classList.remove('active');
+    gridView.classList.remove('d-none');
+    feedView.classList.add('d-none');
+  };
+</script>
+</body>
+</html>
